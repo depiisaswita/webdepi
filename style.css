@@ -1,0 +1,729 @@
+/* --- 1. GLOBAL & ROOT SETTINGS --- */
+:root {
+  --gold: #d4af37;
+  --dark: #333;
+  --light-bg: #f8f9fa;
+  --brown-main: #8e6d56;
+  --brown-light: #a67c61;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Work Sans", sans-serif;
+  background-color: var(--light-bg);
+  margin: 0;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: 1px;
+}
+
+p {
+  line-height: 1.8;
+}
+
+.sacramento {
+  font-family: "Sacramento", cursive;
+}
+
+/* --- 2. UTILITY CLASSES --- */
+.d-none {
+  display: none !important;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.gold-color {
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.gold-icon {
+  color: var(--gold);
+  font-size: 1.5rem;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
+}
+
+.italic {
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+/* --- 3. LAYOUT & CONTAINER --- */
+#main-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: white;
+}
+
+section {
+  padding: 100px 0;
+}
+
+.section-title {
+  font-size: 3rem;
+  color: var(--brown-main);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* --- 4. HERO SECTION (COVER) --- */
+.hero-section {
+  height: 100vh;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("img/no3.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.hero-content {
+  animation: fadeSlide 1.2s ease forwards;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.guest-display {
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.btn-open {
+  background-color: var(--gold);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-open:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* --- 5. IMAGE DISPLAY & INFO SECTION --- */
+/* --- Perbaikan Image Hero Display --- */
+.image-hero-display {
+  height: 85vh; /* Sedikit lebih tinggi agar megah */
+  background: url("img/no3.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Memberikan efek Parallax yang mewah */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Overlay Gelap agar teks Putih terlihat tajam */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.5)
+  );
+  z-index: 1;
+}
+
+.wedding-of-container {
+  position: relative;
+  z-index: 2; /* Memastikan di atas overlay */
+}
+
+.wedding-of-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px); /* Efek kaca modern */
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 40px 60px;
+  border-radius: 25px;
+  color: white;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.main-names-hero {
+  font-size: 3.5rem;
+  margin: 10px 0;
+  color: #fff;
+}
+
+.wedding-of-card p {
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+.divider-gold-small {
+  width: 60px;
+  height: 2px;
+  background: var(--gold);
+  margin: 15px auto;
+}
+
+.wedding-date-hero {
+  font-weight: 300;
+  letter-spacing: 6px !important;
+}
+
+/* Animasi Muncul */
+.animate-up {
+  animation: fadeInUp 1.5s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive khusus Bagian ini */
+@media (max-width: 768px) {
+  .image-hero-display {
+    height: 60vh;
+    background-attachment: scroll; /* Matikan parallax di HP agar ringan */
+  }
+  .wedding-of-card {
+    padding: 25px 35px;
+    width: 90%;
+    margin: 0 auto;
+  }
+  .main-names-hero {
+    font-size: 2.5rem;
+  }
+}
+
+.image-hero-display {
+  height: 70vh;
+  background: url("img/no3.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wedding-of-text {
+  color: #ffffff !important;
+  font-size: 1.2rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
+  z-index: 5;
+  text-shadow:
+    2px 2px 10px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.wedding-of-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 15px 40px;
+  border-radius: 50px;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.info-section-cream {
+  background-color: #fdf5e6;
+  padding: 80px 20px;
+  color: var(--brown-main);
+  text-align: center;
+}
+
+.main-names {
+  font-size: 3.2rem;
+  letter-spacing: 2px;
+  color: var(--brown-main);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.divider-centered {
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  margin: 0 auto;
+}
+
+.invite-msg {
+  font-style: italic;
+  color: var(--brown-light);
+}
+
+.date-box {
+  display: inline-block;
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  padding: 10px 30px;
+}
+
+.wedding-date-text {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--brown-main);
+  letter-spacing: 1px;
+}
+
+.btn-save-date-brown {
+  background: linear-gradient(
+    135deg,
+    var(--brown-light) 0%,
+    var(--brown-main) 100%
+  );
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.35s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-save-date-brown:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(142, 109, 86, 0.5);
+  filter: brightness(1.1);
+}
+
+/* --- 6. COUPLE & STORY SECTION --- */
+.couple-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--gold);
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.couple-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.story-item {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: left;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.story-item p {
+  text-align: justify;
+  color: #4a4a4a;
+  font-size: 0.95rem;
+}
+
+.story-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.border-gold {
+  border-left: 4px solid var(--gold) !important;
+}
+
+/* --- 7. EVENT SECTION --- */
+.event-section {
+  background-color: #f1f1f1;
+}
+
+.event-card {
+  background: white;
+  padding: 40px;
+  margin: 15px;
+  border-radius: 20px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  transition: all 0.4s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2) !important;
+}
+
+.divider-gold {
+  width: 50px;
+  height: 2px;
+  background-color: var(--gold);
+  margin: 0 auto 20px;
+  opacity: 1;
+}
+
+.btn-maps {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 8px 25px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-maps:hover {
+  background: var(--gold);
+  color: white !important;
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+/* --- 8. GALLERY & SOCIALS --- */
+/* Container Utama Gallery */
+.gallery-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  height: 100%; /* Agar mengikuti tinggi kolom */
+}
+
+/* Gaya Foto */
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Foto akan terpotong rapi memenuhi kotak */
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Efek Overlay Saat Di-hover */
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(142, 109, 86, 0.2); /* Warna cokelat transparan */
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* Animasi Hover */
+.gallery-container:hover .gallery-img {
+  transform: scale(1.1) rotate(1deg); /* Foto membesar dan sedikit miring */
+}
+
+.gallery-container:hover .gallery-overlay {
+  opacity: 1;
+}
+
+/* Penyesuaian Tinggi Khusus (Agar grid terlihat rapi) */
+.col-7 .gallery-container {
+  height: 250px;
+}
+.col-5 .gallery-container {
+  height: 250px;
+}
+.col-4 .gallery-container {
+  height: 150px;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 767px) {
+  .col-7 .gallery-container,
+  .col-5 .gallery-container {
+    height: 180px;
+  }
+  .col-4 .gallery-container {
+    height: 100px;
+  }
+}
+
+.gallery-section img {
+  border-radius: 16px;
+  filter: brightness(95%);
+  transition:
+    transform 0.3s,
+    filter 0.3s;
+  cursor: pointer;
+  object-fit: cover;
+  height: 150px;
+  width: 100%;
+}
+
+.gallery-section img:hover {
+  transform: scale(1.05);
+  filter: brightness(110%);
+}
+
+.btn-instagram {
+  display: inline-block;
+  padding: 8px 20px;
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  color: #ffffff !important;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(220, 39, 67, 0.3);
+  margin-top: 10px;
+}
+
+.btn-instagram:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(220, 39, 67, 0.5);
+  filter: brightness(1.1);
+}
+
+/* --- 9. QURAN SECTION --- */
+.quran-section {
+  background-color: #fdf5e6;
+  color: var(--brown-main);
+  border-bottom: 2px solid #e2d1c3;
+}
+
+.arabic {
+  font-family: serif;
+  line-height: 2.5rem;
+}
+
+.translation {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* --- 10. NAVIGATION & AUDIO --- */
+.navbar-bottom-floating {
+  position: fixed;
+  bottom: 25px;
+  left: 0;
+  right: 0;
+  display: none;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.nav-white-card {
+  background: white;
+  display: flex;
+  gap: 15px;
+  padding: 12px 25px;
+  border-radius: 20px;
+  width: 85%;
+  justify-content: space-between;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.nav-item {
+  color: #ccc;
+  font-size: 1.4rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.nav-item:hover {
+  color: var(--brown-light);
+  transform: translateY(-2px);
+}
+
+.nav-item.active {
+  background: var(--brown-light);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 12px;
+}
+
+.audio-icon-wrapper {
+  width: 50px;
+  height: 50px;
+  background: var(--brown-light) !important;
+  border: 3px solid white;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  cursor: pointer;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 999;
+  animation: rotateDisc 3s linear infinite;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* --- 11. ANIMATIONS --- */
+@keyframes rotateDisc {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* --- 12. RESPONSIVE MEDIA QUERIES --- */
+@media (min-width: 992px) {
+  .section-title {
+    font-size: 4.5rem;
+  }
+  .navbar-bottom-floating {
+    width: 500px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .image-hero-display {
+    height: 90vh;
+  }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+  .section-title {
+    font-size: 3.5rem;
+  }
+  .navbar-bottom-floating {
+    width: 80%;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-title {
+    font-size: 2.8rem;
+  }
+  .hero-section h1 {
+    font-size: 3.5rem;
+  }
+  .nav-white-card {
+    width: 95%;
+    padding: 10px 15px;
+  }
+  .nav-item {
+    font-size: 1.2rem;
+  }
+}
+
+/* Gaya Amplop Digital */
+.gift-section {
+  background-color: #fdf5e6;
+}
+
+.bank-card {
+  background: white;
+  border-radius: 20px;
+  border: 1px solid rgba(142, 109, 86, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.bank-card:hover {
+  transform: translateY(-5px);
+}
+
+.btn-copy {
+  background: #f8f9fa;
+  border: 1px solid #d4af37;
+  color: #8e6d56;
+  padding: 5px 20px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  transition: 0.3s;
+}
+
+.btn-copy:hover {
+  background: #d4af37;
+  color: white;
+}
+
+/* Gaya Ucapan */
+.message-section {
+  background-color: white;
+}
+
+.text-brown {
+  color: #8e6d56;
+}
+
+.shadow-inner {
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.single-message p {
+  line-height: 1.4 !important;
+  text-align: left !important;
+}
+
+.form-control:focus {
+  border-color: #d4af37;
+  box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25);
+}
+
+/* Menjaga tampilan tombol Save The Date tetap sama saat berubah jadi link */
+.btn-save-date-brown.text-decoration-none {
+  display: inline-block;
+  color: white !important;
+}
+
+.btn-save-date-brown:hover {
+  color: white !important;
+}
